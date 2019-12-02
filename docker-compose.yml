@@ -1,0 +1,17 @@
+version: '3'
+services:
+  project-name:
+    image: arm32v7-gcc-83
+    volumes:
+      - ./code:/home/code/CGI
+    command: ["bash", "compile.sh", "true", "project-folder-name", "install", "Release"]
+  cex:
+    image: arm32v7-gcc-83
+    volumes:
+      - ./code:/home/code/CGI
+    command: ["bash", "compile.sh", "true", "cmake-example", "install", "Release"]
+  sleep:
+    image: arm32v7-gcc-83
+    volumes:
+      - ./code:/home/code/CGI
+    command: ["sleep", "5000"]
